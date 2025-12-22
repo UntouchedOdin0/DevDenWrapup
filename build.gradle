@@ -1,0 +1,26 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '2.1.21'
+}
+
+group = 'me.untouchedodin0.privatemines'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+
+    implementation("net.dv8tion:JDA:5.2.1") // Latest JDA
+    implementation("club.minnced:jda-ktx:0.12.0") // Vital for Coroutines/Flow
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("ch.qos.logback:logback-classic:1.5.6") // For logging
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(21)
+}
