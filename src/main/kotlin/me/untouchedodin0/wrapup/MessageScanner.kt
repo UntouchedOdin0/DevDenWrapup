@@ -1,3 +1,5 @@
+package me.untouchedodin0.wrapup
+
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
@@ -11,6 +13,10 @@ import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel
 import java.time.OffsetDateTime
 
 class MessageScanner {
+
+    var lastBumperId: Long? = null
+    val foundBumps = mutableMapOf<Long, Long>()
+    val DISBOARD_ID = 302050872383242240L
 
     fun streamChannelMessages(channel: MessageChannel, since: OffsetDateTime): Flow<Message> {
         return channel.iterableHistory

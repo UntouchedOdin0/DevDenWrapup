@@ -12,10 +12,25 @@ repositories {
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 
-    implementation("net.dv8tion:JDA:5.2.1") // Latest JDA
-    implementation("club.minnced:jda-ktx:0.12.0") // Vital for Coroutines/Flow
+    // JDA Core
+    implementation("net.dv8tion:JDA:5.2.1")
+    // Kotlin Extensions for JDA (The magic for .asFlow())
+    implementation("club.minnced:jda-ktx:0.12.0")
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-    implementation("ch.qos.logback:logback-classic:1.5.6") // For logging
+    // For logging
+    implementation("ch.qos.logback:logback-classic:1.5.6")
+    // Database (Exposed + SQLite)
+    implementation "org.jetbrains.exposed:exposed-core:0.50.1"
+    implementation "org.jetbrains.exposed:exposed-dao:0.50.1"
+    implementation "org.jetbrains.exposed:exposed-jdbc:0.50.1"
+    implementation "org.xerial:sqlite-jdbc:3.45.2.0"
+
+    runtimeOnly "org.xerial:sqlite-jdbc:3.45.2.0"
+    // Logging
+    implementation "ch.qos.logback:logback-classic:1.5.6"
+
+    implementation 'com.google.code.gson:gson:2.10.1'
 }
 
 test {
